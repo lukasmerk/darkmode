@@ -1,0 +1,12 @@
+{
+    "dark": {
+        "gnome": "Plata-Noir",
+        "gtk": "Plata-Noir-Compact",
+        "vscode": "Atom One Dark"
+    },
+    "light": {
+        "gnome": "Plata-Lumine",
+        "gtk": "Plata-Lumine-Compact",
+        "vscode": "Atom One Light"
+    }
+}

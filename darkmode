@@ -1,0 +1,24 @@
+#!/bin/bash
+
+modefile='~/.config/darkmode/current'
+current=$( cat ~/.config/darkmode/current )
+if [[ "$current" = "light" ]]; then
+    mode="dark"
+else
+    mode="light"
+fi
+echo $mode > ~/.config/darkmode/current
+
+configfile='~/.config/darkmode/config.json'
+
+gnome="$( jq -r ".$mode.gnome" ~/.config/darkmode/config.json )"
+gtk="$( jq -r ".$mode.gtk" ~/.config/darkmode/config.json )"
+vscode="$( jq -r ".$mode.vscode" ~/.config/darkmode/config.json )"
+
+# gnome shell
+gsettings set org.gnome.shell.extensions.user-theme name "$gnome"
+# gtk
+gsettings set org.gnome.desktop.interface gtk-theme "$gtk"
+# vscode
+file=$(jq --arg theme "$vscode" '.["workbench.colorTheme"] = $theme' ~/.config/Code/User/settings.json)
+echo $file > ~/.config/Code/User/settings.json
