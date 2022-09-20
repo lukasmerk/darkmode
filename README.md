@@ -14,7 +14,7 @@ cd darkmode
 ./install.sh
 ```
 
-After that, the cloned repository can be deleted, the script lives in `/usr/bin`, the config files in `~/.config/darkmode/`.
+After that the cloned repository can be deleted, the script lives in `/usr/bin`, the config files in `~/.config/darkmode/`.
 
 ## Uninstalling
 
